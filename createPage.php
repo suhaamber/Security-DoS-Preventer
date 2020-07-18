@@ -18,9 +18,7 @@ $password = mysqli_real_escape_string($conn, $_POST["password"]);
 $fname = mysqli_real_escape_string($conn, $_POST["fname"]); 
 $email_id = mysqli_real_escape_string($conn, $_POST["email_id"]); 
 
-$password = password_hash($password, PASSWORD_DEFAULT); 
-
- $sql = "INSERT INTO login_details VALUES ('$username','$password','$fname', '$email_id'); 
+$sql = "INSERT INTO login_details VALUES ('$username','$password','$fname', '$email_id')"; 
 
 if (!$conn->query($sql))
 {    
@@ -29,7 +27,7 @@ if (!$conn->query($sql))
 
  
 $conn->close(); 
-header("Location: ../index.html");
+header("Location: index.php");
 die();
 
 ?>

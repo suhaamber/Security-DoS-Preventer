@@ -67,7 +67,7 @@ $conn->close();
 		<meta charset = "utf-8" > <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no" > 
 		<title > Securtiy DoS Preventer</title>  
 	  	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous" > 
-		<link rel = "stylesheet" href = "project/index.css" type = "text/css" > 
+		<link rel = "stylesheet" href = "index.css" type = "text/css" > 
 	</head > 
 	<body > 
 		<div class = "sidenav" > 
@@ -81,7 +81,7 @@ $conn->close();
 		<div class = "main" > 
 			<div class = "col-lg-5 col-md-6 col-sm-12" > 
 				<div class = "login-form" > 
-					<form action = "project/index2.php" method = "POST" > 
+					<form action = "index2.php" method = "POST" > 
 						<div class = "form-group" > 
 							<label > User Name </label > 
 							<input type = "text" class = "form-control" placeholder = "User Name" name='username'> 
@@ -91,7 +91,7 @@ $conn->close();
 						<input type = "password" class = "form-control" placeholder = "Password" name='password'> 
 						</div > 
 						<button type = "submit" class = "btn btn-black" > Login </button> 
-						<a href = "project/createPage.html" class = "btn btn-secondary" > Create new account </a>
+						<a href = "createPage.html" class = "btn btn-secondary" > Create new account </a>
 					</form >
 				</div >
 			</div >
