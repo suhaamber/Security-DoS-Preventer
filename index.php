@@ -73,8 +73,8 @@ $conn->close();
 		<div class = "sidenav" > 
 			<div class = "login-main-text" > 
 				<h2 class = "display-4" > Security DoS <br> Preventer </h2 > 
-				<h3 > Login page </h3 > 
-				<p > Login to access security details. </p >
+				<h3>Login page </h3> 
+				<p> Login to access security details. </p>
 				<p>Project by Suha Amber</p>
 			</div > 
 		</div > 

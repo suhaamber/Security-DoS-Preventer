@@ -27,13 +27,13 @@ header('Location: index.php');
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  Homepage <span class="sr-only">(current)</span>
+                <a class="nav-link" href="homePage.php">
+                  Homepage 
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="visitor_page.php">
-                  Search Visitors
+                <a class="nav-link active" href="#">
+                  Search Visitors <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -50,8 +50,6 @@ header('Location: index.php');
           </div>
         </nav>
 			 <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-			<p> Details of the last five logins into the system:</p>
-			<?php include 'phpcode.php' ?>
 			<p> Details of last 10 visitors to the website: </p>
 			<?php include 'phpcode2.php' ?>
 	</div>	
