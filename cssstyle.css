@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body {
-  font-size: .9rem;
+  font-size: 1rem;
  font-family: 'Quicksand', sans-serif;
+}
+
+p{
+  font-size: 1.25rem;
 }
 
 .feather {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
+}
+
+.form-control{
+  padding-left: 0.25px; 
+  padding-right: 0.25px; 
 }
 
 /*
