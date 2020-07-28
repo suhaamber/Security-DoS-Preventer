@@ -14,7 +14,6 @@ header('Location: index.php');
 	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous" > 
 	<link rel = "stylesheet" href = "cssstyle.css" type = "text/css" >
 	
-	<link href=".https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	</head > 
 	<body > 
 		<nav class = "navbar navbar-dark bg-dark sticky-top" > 
@@ -49,7 +48,7 @@ header('Location: index.php');
             </ul>
           </div>
         </nav>
-		<div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+		<div  class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <form action="#" method="POST">
                 <div class="form-inline">
                     <label for="ipadd">Show timestamp details for: </label>

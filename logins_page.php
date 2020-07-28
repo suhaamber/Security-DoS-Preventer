@@ -14,8 +14,6 @@ header('Location: index.php');
 	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous" > 
   <link rel="canonical" href="localhost/Security-DoS-Preventer/logins_page/">
 	<link rel = "stylesheet" href = "cssstyle.css" type = "text/css" >
-	
-	<link href=".https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	</head > 
 	<body > 
 		<nav class = "navbar navbar-dark bg-dark sticky-top" > 
@@ -24,7 +22,7 @@ header('Location: index.php');
 		</nav > 
  <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -49,13 +47,152 @@ header('Location: index.php');
               </li>
             </ul>
           </div>
-        </nav>
-			 <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-			<p> Details of last 10 logins to the website: </p>
-			<?php include 'phpcode2.php' ?>
-	</div>	
+          </nav>
+			    <div class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <form action="#" method="GET">
+              <div class="form-inline">
+                <label>Show</label>
+                <div class="form-check">
+                  <input class="form-input mx-2" name="query[]" type="checkbox" value="ip_address" id="query">
+                  <label class="form-check-label" for="ipadd">
+                    IP Address
+                  </label> 
+                  <input class="form-input mx-2" name="query[]" type="checkbox" value="timestamp" id="query">
+                  <label class="form-check-label mr-2" for="time">
+                    Timestamp
+                  </label>
+                </div>
+                <label for="Username">for: </label>
+                <select id="Username" class="form-control mx-2" name="Username">
+                    <?php 
+                    $servername = "localhost";
+                    $username = "proj_user3";
+                    $password = "user99";
+                    $dbname = "proj_user";
 
-</div>
-</div> 
+                    $conn = new mysqli ($servername, $username, $password, $dbname);
+
+                    if ($conn->connect_error)
+                    {
+                        die ("Connection failed: ".$conn->connect_error);
+                    }
+
+                    $sql = "SELECT DISTINCT username from logins"; 
+
+                    if($result=$conn->query($sql))
+                    {
+                        while($row=mysqli_fetch_array($result))
+                        {
+                            echo '<option value='.$row['username'].'>'.$row['username'].'</option>';
+                        }
+                    }    
+                    $conn->close(); 
+                    ?>
+                    <option value="All">All</option>
+                </select>
+                <button type="submit" class="btn btn-dark mx-2" name="submit">Run Query</button>    
+              </div>
+            </form>
+            <?php 
+              $servername = "localhost";
+              $username = "proj_user3";
+              $password = "user99";
+              $dbname = "proj_user";
+
+              $conn = new mysqli ($servername, $username, $password, $dbname);
+
+              if ($conn->connect_error)
+              {
+                  die ("Connection failed: ".$conn->connect_error);
+              }
+
+              if(isset($_GET['submit']))
+              {
+                  $sql = "SELECT DISTINCT username ";
+                  $name = $_GET['query'];
+                  foreach ($name as $color) {
+                    $sql .= ",".$color;
+                  }
+
+                  $sql .= " from logins";
+
+                  $count = 0;
+                  foreach($name as $color)
+                  {
+                      if($color=="ip_address")
+                      {   $count+=1; }
+                      if($color=="timestamp")
+                      {   $count+=2; }
+
+                  }
+
+                  $selected = $_GET['Username'];
+                  if($selected!="All")
+                  {
+                      $sql.=" where username='$selected'";
+                  }
+
+                  if($result = $conn->query($sql))
+                  {
+                      if(mysqli_num_rows($result)>0)
+                      {
+                          echo "<table class='table table-bordered table-striped'>";
+                          echo "<thead>";
+                          echo "<tr>";
+                          echo "<th>Username</th>";
+                          switch($count)
+                          {
+                              case 1: echo "<th>IP Address</th>"; 
+                                      break; 
+                              case 2: echo "<th>Timestamp</th>";
+                                      break; 
+                              case 3: echo "<th>IP Address</th>";
+                                      echo "<th>Timestamp</th>";
+                                      break;
+                          }
+                          echo "</tr>";
+                          echo "</thead>";
+                          echo "<tbody>";
+                          while ($row = mysqli_fetch_array($result))
+                          {
+                              echo "<tr>";
+                              echo "<td>".$row['username']."</td>";
+                              switch($count)
+                              {
+                                  case 1: echo "<td>".$row['ip_address']."</td>"; 
+                                          break; 
+                                  case 2: echo "<td>".$row['timestamp']."</td>";
+                                          break; 
+                                  case 3: echo "<td>".$row['ip_address']."</td>";
+                                          echo "<td>".$row['timestamp']."</td>";
+                                          break;
+                              }
+                              echo "</tr>";
+                          }
+                          echo "</tbody>";
+                          echo "</table>";
+                          mysqli_free_result ($result);
+                      }
+                  
+                    else
+                      {
+                    echo "<p class='lead'><em>No records were found.</em></p>";
+                      } 
+                }
+              else
+                {
+                  echo "ERROR: Unable to execute query. ".$conn->error();
+                }
+              }
+              else 
+              {
+                echo "Error submitting";
+              }
+
+              $conn->close();
+            ?>
+          </div>
+    </div>
+  </div> 
 	</body > 
 </html >
