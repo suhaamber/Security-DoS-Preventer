@@ -31,8 +31,8 @@ header('Location: index.php');
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  Search Visitors <span class="sr-only">(current)</span>
+                <a class="nav-link" href="#">
+                  Search Visitors 
                 </a>
               </li>
               <li class="nav-item">
@@ -46,8 +46,8 @@ header('Location: index.php');
                 </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="failed_logins.php">
-                    Search Failed Logins 
+                  <a class="nav-link active" href="failed_logins.php">
+                    Search Failed Logins <span class="sr-only">(current)</span>
                   </a>
                 </li>
             </ul>
@@ -56,7 +56,7 @@ header('Location: index.php');
 		<div  class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <form action="#" method="POST">
                 <div class="form-inline">
-                    <label for="ipadd">Show timestamp details for: </label>
+                    <label for="ipadd">Show failed attempts to access webiste for: </label>
                     <select id="ipadd" class="form-control mx-2" name="ipadd">
                         <?php 
                         $servername = "localhost";
@@ -71,7 +71,7 @@ header('Location: index.php');
                             die ("Connection failed: ".$conn->connect_error);
                         }
 
-                        $sql = "SELECT DISTINCT ip_address from visitors"; 
+                        $sql = "SELECT DISTINCT ip_address from failed_logins"; 
 
                         if($result=$conn->query($sql))
                         {
@@ -82,7 +82,7 @@ header('Location: index.php');
                         }    
                         $conn->close(); 
                         ?>
-                        <option value="All">All</option>
+                        <option value="All">All attempts</option>
                     </select>
                     <button type="submit" class="btn btn-dark mx-2" name="submit">Run Query</button>    
                 </div>
@@ -105,7 +105,7 @@ header('Location: index.php');
 
                         if($selected != "All")
                         {
-                            $sql = "SELECT timestamp from visitors where ip_address='$selected'";
+                            $sql = "SELECT timestamp from failed_logins where ip_address='$selected'";
 
                             if ($result = $conn->query($sql))
                             {
@@ -138,7 +138,7 @@ header('Location: index.php');
                         }
                         else
                         {
-                            $sql = "SELECT * from visitors";
+                            $sql = "SELECT * from failed_logins";
 
                             if ($result = $conn->query($sql))
                             {

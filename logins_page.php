@@ -36,15 +36,20 @@ header('Location: index.php');
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  Search Login Details <span class="sr-only">(current)</span>
+                <a class="nav-link" href="login_details.php">
+                  Search Login Details 
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login_details.php">
-                  Search Logins
+                <a class="nav-link active" href="#">
+                  Search Logins <span class="sr-only">(current)</span>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="failed_logins.php">
+                    Search Failed Logins 
+                  </a>
+                </li>
             </ul>
           </div>
           </nav>
@@ -184,11 +189,7 @@ header('Location: index.php');
                   echo "ERROR: Unable to execute query. ".$conn->error();
                 }
               }
-              else 
-              {
-                echo "Error submitting";
-              }
-
+              
               $conn->close();
             ?>
           </div>

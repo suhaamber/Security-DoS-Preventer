@@ -32,7 +32,7 @@ if(!$conn->query($sql))
 			while($row = mysqli_fetch_row($result))		
 			{
 				$time =$row[0];
-			       	$sql3 = "SELECT TIMESTAMPDIFF(MINUTE,'$time', CURRENT_TIMESTAMP())";
+			    $sql3 = "SELECT TIMESTAMPDIFF(MINUTE,'$time', CURRENT_TIMESTAMP())";
 				if($timediff = $conn->query($sql3))
 				{
 					$timed1 = mysqli_fetch_row($timediff);
@@ -50,6 +50,11 @@ if(!$conn->query($sql))
 			}
 			if($count>=5)
 			{
+				$sql = "INSERT INTO failed_logins(ip_address) VALUES ('$ipaddress')";
+				if($result = $conn->query($sql))
+				{
+					echo "error storing failed access to website details.";
+				}
 				header('Location: noaccess.html');  
 			}
 		}

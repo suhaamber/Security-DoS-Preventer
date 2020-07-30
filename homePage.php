@@ -46,6 +46,11 @@ header('Location: index.php');
                   Search Logins
                 </a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="failed_logins.php">
+                    Search Failed Logins 
+                  </a>
+                </li>
             </ul>
           </div>
         </nav>
