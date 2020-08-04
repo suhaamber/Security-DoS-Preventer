@@ -1,17 +1,6 @@
 <?php 
 
-$servername = "localhost";
-$username = "proj_user3";
-$password = "user99";
-$dbname = "proj_user";
-
-// Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
-
- // Check connection
- if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-  }
+include 'dbinfo.php';
 
 $username = mysqli_real_escape_string($conn, $_POST["username"]);  
 $password = mysqli_real_escape_string($conn, $_POST["password"]);

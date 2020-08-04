@@ -10,7 +10,7 @@ header('Location: index.php');
 	<head > 
 	<meta charset = "utf-8" > 
 	<meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no" > 
-	<title > Home Page </title > 
+	<title > Search Visitors </title > 
 	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous" > 
 	<link rel = "stylesheet" href = "cssstyle.css" type = "text/css" >
 	
@@ -59,17 +59,7 @@ header('Location: index.php');
                     <label for="ipadd">Show timestamp details for: </label>
                     <select id="ipadd" class="form-control mx-2" name="ipadd">
                         <?php 
-                        $servername = "localhost";
-                        $username = "proj_user3";
-                        $password = "user99";
-                        $dbname = "proj_user";
-
-                        $conn = new mysqli ($servername, $username, $password, $dbname);
-
-                        if ($conn->connect_error)
-                        {
-                            die ("Connection failed: ".$conn->connect_error);
-                        }
+                        include 'dbinfo.php';
 
                         $sql = "SELECT DISTINCT ip_address from visitors"; 
 

@@ -1,16 +1,5 @@
 <?php 
-$servername = "localhost";
-$username = "proj_user3";
-$password = "user99";
-$dbname = "proj_user";
-
-$conn = new mysqli ($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error)
-  {
-    die ("Connection failed: ".$conn->connect_error);
-  }
+include 'dbinfo.php';
 
 $ipaddress = $_SERVER['REMOTE_ADDR']; 
 
@@ -70,7 +59,7 @@ $conn->close();
 <html lang = "en" > 
 	<head > 
 		<meta charset = "utf-8" > <meta name = "viewport" content = "width=device-width, initial-scale=1, shrink-to-fit=no" > 
-		<title > Securtiy DoS Preventer</title>  
+		<title > Security DoS Preventer</title>  
 	  	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous" > 
 		<link rel = "stylesheet" href = "index.css" type = "text/css" > 
 	</head > 

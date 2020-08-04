@@ -1,15 +1,5 @@
-<?php $servername = "localhost";
-$username = "proj_user3";
-$password = "user99";
-$dbname = "proj_user";
-
-$conn = new mysqli ($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error)
-  {
-    die ("Connection failed: ".$conn->connect_error);
-  }
+<?php 
+include 'dbinfo.php';
 
 
 $sql3 = "SELECT * FROM logins ORDER BY timestamp DESC LIMIT 5";

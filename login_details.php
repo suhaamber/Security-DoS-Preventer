@@ -18,7 +18,7 @@ header('Location: index.php');
 	</head > 
 	<body > 
 		<nav class = "navbar navbar-dark bg-dark sticky-top" > 
-			<span class = "navbar-brand mb-0 h1" > Security DoS Preventer </span > 
+			<span class = "navbar-brand mb-0 h1" > Login Details </span > 
 			<a href = "logout.php" class = "btn btn-light my-2 my-sm-0" > Log out </a > 
 		</nav> 
     <div class="container-fluid">
@@ -46,6 +46,11 @@ header('Location: index.php');
                     Search Logins 
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="failed_logins.php">
+                    Search Failed Logins 
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>
@@ -55,17 +60,7 @@ header('Location: index.php');
                 <label for="users">Show login details for: </label>
                 <select id="users" class="form-control mx-2" name="users">
                     <?php 
-                    $servername = "localhost";
-                    $username = "proj_user3";
-                    $password = "user99";
-                    $dbname = "proj_user";
-
-                    $conn = new mysqli ($servername, $username, $password, $dbname);
-
-                    if ($conn->connect_error)
-                    {
-                        die ("Connection failed: ".$conn->connect_error);
-                    }
+                    include 'dbinfo.php';
 
                     $sql = "SELECT username from login_details"; 
 
